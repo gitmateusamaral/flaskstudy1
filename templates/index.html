@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Microblog
+{% endblock %}
+
+{% block body %}
+    <ul>
+        {% for i in range(0,len) %}
+            <li><b>{{titles[i]}}</b> </br>{{notes[i]}} 
+                <form action="{{ url_for('index') }}" method="post" >
+                    <button type="submit" class = btn name="name" value="edit{{i}}">Edit</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <form action="{{ url_for('edit_post') }}" method="get">
+        <button class = btn>Create a new post</button>
+    </form>
+
+{% endblock %}
